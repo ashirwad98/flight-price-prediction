@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('C:\Users\ASHIRWAD\OneDrive\Desktop\FLIGHT PRICE PREDICTION\static\images\pexels-pixabay-62623.jpg'); /* Replace with your image path */
+            background-size: cover; /* Ensures the image covers the whole page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Makes the image stay fixed during scrolling */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+
+        
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.1em;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #942e2e;
+            border-radius: 6px;
+            font-size: 1em;
+            margin-top: 6px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .prediction {
+            color: #4CAF50;
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #f1f1f1;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Flight Price Prediction</h1>
+    </header>
+    <body>
+        <!-- Page content -->
+        <script>
+            window.onload = function() {
+                alert("Welcome to the Flight Price Prediction Page!");
+            };
+        </script>
+    </body>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('static/images/pexels-pixabay-62623.jpg'); /* Path to your image */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents tiling */
+            background-attachment: fixed; /* Fixes the image during scrolling */
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20%;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+
+    <div class="container">
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="AIRLINE">Airline</label>
+                <select name="AIRLINE" id="AIRLINE" required>
+                    <option value="Airindia">Airindia</option>
+                    <option value="Qatar Airways">Qatar Airways</option>
+                    <option value="Cessna">Cessna</option>
+                    <option value="Emirates">Emirates</option>
+                    <option value="Singapore Airlines">Singapore Airlines</option>
+                    <option value="Lufthansa">Lufthansa</option>
+                    <option value="Turkish Airlines">Turkish Airlines</option>
+                    <option value="British Airways">British Airways</option>
+                    <option value="American Airlines">American Airlines</option>
+                    <option value="Delta Airlines">Delta Airlines</option>
+                    <option value="United Airlines">United Airlines</option>
+                    <option value="Cathay Pacific">Cathay Pacific</option>
+                    <option value="Qantas">Qantas</option>
+                    <option value="Etihad Airways">Etihad Airways</option>
+                    <option value="Japan Airlines">Japan Airlines</option>
+                    <option value="Air France">Air France</option>
+                    <option value="KLM Royal Dutch Airlines">KLM Royal Dutch Airlines</option>
+                    <option value="Swiss International Air Lines">Swiss International Air Lines</option>
+                    <option value="Korean Air">Korean Air</option>
+                    <option value="China Airlines">China Airlines</option>
+                    <option value="Alaska Airlines">Alaska Airlines</option>
+                    <option value="Hainan Airlines">Hainan Airlines</option>
+                    <option value="Aeroflot">Aeroflot</option>
+                    <option value="Garuda Indonesia">Garuda Indonesia</option>
+                    <option value="Thai Airways">Thai Airways</option>
+                    <option value="Malaysia Airlines">Malaysia Airlines</option>
+                    <option value="Asiana Airlines">Asiana Airlines</option>
+                    <option value="Eva Air">Eva Air</option>
+                    <option value="Air Canada">Air Canada</option>
+                    <option value="Aeromexico">Aeromexico</option>
+                    <option value="LATAM Airlines">LATAM Airlines</option>
+                    <option value="Saudi Airlines">Saudi Airlines</option>
+                    <option value="Air New Zealand">Air New Zealand</option>
+                    <option value="South African Airways">South African Airways</option>
+                    <option value="Scoot">Scoot</option>
+                    <option value="Indigo Airlines">Indigo Airlines</option>
+                    <option value="SpiceJet">SpiceJet</option>
+                    <option value="Go First">Go First</option>
+                    <option value="Vistara">Vistara</option>
+                    <option value="Jet Airways">Jet Airways</option>
+                    <option value="Ryanair">Ryanair</option>
+                    <option value="EasyJet">EasyJet</option>
+                    <option value="Wizz Air">Wizz Air</option>
+                    <option value="Norwegian Air">Norwegian Air</option>
+                    <option value="Iberia">Iberia</option>
+                    <option value="Air Europa">Air Europa</option>
+                    <option value="Finnair">Finnair</option>
+                    <option value="SAS Scandinavian Airlines">SAS Scandinavian Airlines</option>
+                    <option value="Austrian Airlines">Austrian Airlines</option>
+                    <option value="Air Portugal">Air Portugal</option>
+                    <option value="Alitalia">Alitalia</option>
+                    <option value="Vietnam Airlines">Vietnam Airlines</option>
+                    <option value="Philippine Airlines">Philippine Airlines</option>
+                    <option value="Bangkok Airways">Bangkok Airways</option>
+                    <option value="SriLankan Airlines">SriLankan Airlines</option>
+                    <option value="Bamboo Airways">Bamboo Airways</option>
+                    <option value="Azul Brazilian Airlines">Azul Brazilian Airlines</option>
+                    <option value="Gol Transportes Aéreos">Gol Transportes Aéreos</option>
+                    <option value="Virgin Atlantic">Virgin Atlantic</option>
+                    <option value="Virgin Australia">Virgin Australia</option>
+                    <option value="Peach Aviation">Peach Aviation</option>
+                    <option value="Tigerair">Tigerair</option>
+                    <option value="AirAsia">AirAsia</option>
+                    <option value="Lion Air">Lion Air</option>
+                    <option value="Jetstar Airways">Jetstar Airways</option>
+                    <option value="Hawaiian Airlines">Hawaiian Airlines</option>
+                    <option value="Fiji Airways">Fiji Airways</option>
+                    <option value="Edelweiss Air">Edelweiss Air</option>
+                    <option value="Luxair">Luxair</option>
+                    <option value="Brussels Airlines">Brussels Airlines</option>
+                    <option value="WestJet">WestJet</option>
+                    <option value="Air Transat">Air Transat</option>
+                    <option value="Sun Country Airlines">Sun Country Airlines</option>
+                    <option value="Frontier Airlines">Frontier Airlines</option>
+                    <option value="Spirit Airlines">Spirit Airlines</option>
+                    <option value="Allegiant Air">Allegiant Air</option>
+                    <option value="Volaris">Volaris</option>
+                    <option value="Interjet">Interjet</option>
+                    <option value="Copa Airlines">Copa Airlines</option>
+                    <option value="Avianca">Avianca</option>
+                    <option value="LATAM Brazil">LATAM Brazil</option>
+                    <option value="Azores Airlines">Azores Airlines</option>
+                    <option value="Air Baltic">Air Baltic</option>
+                    <option value="Air Serbia">Air Serbia</option>
+                    <option value="LOT Polish Airlines">LOT Polish Airlines</option>
+                    <option value="Ukraine International Airlines">Ukraine International Airlines</option>
+                    <option value="Czech Airlines">Czech Airlines</option>
+                    <option value="Croatia Airlines">Croatia Airlines</option>
+                    <option value="Bulgarian Air">Bulgarian Air</option>
+                    <option value="RwandAir">RwandAir</option>
+                    <option value="Ethiopian Airlines">Ethiopian Airlines</option>
+                    <option value="Kenya Airways">Kenya Airways</option>
+                    <option value="EgyptAir">EgyptAir</option>
+                    <option value="Royal Air Maroc">Royal Air Maroc</option>
+                    <option value="Tunisair">Tunisair</option>
+                    <option value="Air Mauritius">Air Mauritius</option>
+                    <option value="Air Seychelles">Air Seychelles</option>
+                    <option value="TAROM">TAROM</option>
+                    <option value="S7 Airlines">S7 Airlines</option>
+                    <option value="Air Moldova">Air Moldova</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Source">Source City</label>
+                <select name="Source" id="Source" required>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Kochi">Kochi</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Visakhapatnam">Visakhapatnam</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Varanasi">Varanasi</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Rajkot">Rajkot</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Mysuru">Mysuru</option>
+                    <option value="Vadodara">Vadodara</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Patna">Patna</option>
+                    <option value="Shillong">Shillong</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Ranchi">Ranchi</option>
+                    <option value="Trivandrum">Trivandrum</option>
+                    <option value="Guwahati">Guwahati</option>
+                    <option value="Kanpur">Kanpur</option>
+                    <option value="Meerut">Meerut</option>
+                    <option value="Faridabad">Faridabad</option>
+                    <option value="Tirupati">Tirupati</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Bhubaneswar">Bhubaneswar</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Bikaner">Bikaner</option>
+                    <option value="Dehradun">Dehradun</option>
+                    <option value="Jammu">Jammu</option>
+                    <option value="Udaipur">Udaipur</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Bardhaman">Bardhaman</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Patiala">Patiala</option>
+                    <option value="Gaya">Gaya</option>
+                    <option value="Haldwani">Haldwani</option>
+                    <option value="Bardoli">Bardoli</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Destination">Destination City</label>
+                <select name="Destination" id="Destination" required>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Kochi">Kochi</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Indore">Indore</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Nagpur">Nagpur</option>
+                    <option value="Visakhapatnam">Visakhapatnam</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Varanasi">Varanasi</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Rajkot">Rajkot</option>
+                    <option value="Bhopal">Bhopal</option>
+                    <option value="Mysuru">Mysuru</option>
+                    <option value="Vadodara">Vadodara</option>
+                    <option value="Noida">Noida</option>
+                    <option value="Patna">Patna</option>
+                    <option value="Shillong">Shillong</option>
+                    <option value="Agra">Agra</option>
+                    <option value="Ranchi">Ranchi</option>
+                    <option value="Trivandrum">Trivandrum</option>
+                    <option value="Guwahati">Guwahati</option>
+                    <option value="Kanpur">Kanpur</option>
+                    <option value="Meerut">Meerut</option>
+                    <option value="Tirupati">Tirupati</option>
+                    <option value="Gurgaon">Gurgaon</option>
+                    <option value="Bhubaneswar">Bhubaneswar</option>
+                    <option value="Nashik">Nashik</option>
+                    <option value="Bikaner">Bikaner</option>
+                    <option value="Dehradun">Dehradun</option>
+                    <option value="Jammu">Jammu</option>
+                    <option value="Udaipur">Udaipur</option>
+                    <option value="Amritsar">Amritsar</option>
+                    <option value="Bardhaman">Bardhaman</option>
+                    <option value="Raipur">Raipur</option>
+                    <option value="Patiala">Patiala</option>
+                    <option value="Gaya">Gaya</option>
+                    <option value="Haldwani">Haldwani</option>
+                    <option value="Bardoli">Bardoli</option>
+                    <option value="Firozabad">Firozabad</option>
+                    <option value="Muzaffarpur">Muzaffarpur</option>
+                    <option value="Jalandhar">Jalandhar</option>
+                    <option value="Sonipat">Sonipat</option>
+                    <option value="Aligarh">Aligarh</option>
+                    <option value="Dhanbad">Dhanbad</option>
+                    <option value="Kota">Kota</option>
+                    <option value="Satna">Satna</option>
+                    <option value="Durg">Durg</option>
+                    <option value="Shahjahanpur">Shahjahanpur</option>
+                    <option value="Jhansi">Jhansi</option>
+                    <option value="Karnal">Karnal</option>
+                    <option value="Srinagar">Srinagar</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Kollam">Kollam</option>
+                    <option value="Chhapra">Chhapra</option>
+                    <option value="Raurkela">Raurkela</option>
+                    <option value="Jammu">Jammu</option>
+                    <option value="Bhubaneshwar">Bhubaneshwar</option>
+                    <option value="Gwalior">Gwalior</option>
+                    <option value="Jorhat">Jorhat</option>
+                    <option value="Agartala">Agartala</option>
+                    <option value="Mangalore">Mangalore</option>
+                    <option value="Raigarh">Raigarh</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+                    <option value="Ambala">Ambala</option>
+                    <option value="Kurukshetra">Kurukshetra</option>
+                    <option value="Muzaffarnagar">Muzaffarnagar</option>
+                    <option value="Moradabad">Moradabad</option>
+                    <option value="Puducherry">Puducherry</option>
+                    <option value="Bhagalpur">Bhagalpur</option>
+                    <option value="Hoshiarpur">Hoshiarpur</option>
+                    <option value="Faridkot">Faridkot</option>
+                    <option value="Siliguri">Siliguri</option>
+                    <option value="Palakkad">Palakkad</option>
+                    <option value="Jammu">Jammu</option>
+                    <option value="Nanded">Nanded</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Gurugram">Gurugram</option>
+                    <option value="Muzaffarpur">Muzaffarpur</option>
+                    <option value="Hassan">Hassan</option>
+                    <option value="Rishikesh">Rishikesh</option>
+                    <option value="Chandrapur">Chandrapur</option>
+                    <option value="Kanpur">Kanpur</option>
+                    <option value="Nagapattinam">Nagapattinam</option>
+                    <option value="Srinagar">Srinagar</option>
+                    <option value="Bilaspur">Bilaspur</option>
+                    <option value="Karnal">Karnal</option>
+                    <option value="Aligarh">Aligarh</option>
+                    <option value="Ambala">Ambala</option>
+                    <option value="Shimla">Shimla</option>
+                    <option value="Surat">Surat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Total_stops">Total Stops</label>
+                <input type="number" name="Total_stops" id="Total_stops" required>
+            </div>
+            <div class="form-group">
+                <label for="Dep_hours">Departure Hours</label>
+                <input type="number" name="Dep_hours" id="Dep_hours" required>
+            </div>
+            <div class="form-group">
+                <label for="Arrival_hours">Arrival Hours</label>
+                <input type="number" name="Arrival_hours" id="Arrival_hours" required>
+            </div>
+            <div class="form-group">
+                <label for="Duration_hours">Duration Hours</label>
+                <input type="number" name="Duration_hours" id="Duration_hours" required>
+            </div>
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if prediction %}
+            <div class="prediction">{{ prediction }}</div>
+        {% endif %}
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Flight Price Prediction App. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
